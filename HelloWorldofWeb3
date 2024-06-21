@@ -1,0 +1,25 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.25;
+
+contract HelloWorld {
+  /**
+   * @dev Prints Hello World string
+   */
+  address public owner;
+  string public myString = "Hello World";
+
+  constructor() {
+    owner = msg.sender;
+  }
+
+  function print() public view returns (string memory) {
+    return myString;
+  }
+
+  function update(string memory _newString) public {
+     if(msg.sender == owner) {
+      myString = _newString;
+     }
+  }
+}
+   
